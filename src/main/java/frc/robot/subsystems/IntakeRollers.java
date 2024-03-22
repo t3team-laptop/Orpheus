@@ -7,12 +7,16 @@ package frc.robot.subsystems;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
 public class IntakeRollers extends SubsystemBase {
   /** Creates a new Intake. */
   private static TalonFX intakeMotor;
+  DigitalInput limit = new DigitalInput(Constants.GroundIntake.INTAKE_LIMIT_SWITCH);
+
   public IntakeRollers() {
     intakeMotor = new TalonFX(Constants.GroundIntake.INTAKE_MOTOR_ID);
     intakeMotor.setNeutralMode(NeutralModeValue.Coast);
@@ -26,13 +30,18 @@ public class IntakeRollers extends SubsystemBase {
   public void outtake(double speed){
     intakeMotor.set(speed);
   }
-  public void stop(){
 
+  public void stop(){
     intakeMotor.stopMotor();
+  }
+
+  public boolean isIntaked() {
+    return !limit.get();
   }
 
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
+    SmartDashboard.putBoolean("limit switch status ", limit.get());
   }
 }

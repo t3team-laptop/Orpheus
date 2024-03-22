@@ -67,11 +67,10 @@ public class RobotContainer {
     private final ReverseShooter reverseShooter;
     private final ShootIntoSpeaker shootIntoSpeaker;
     private final SlowMode slowMode;
-   
     private final ManualPivotIntake manualPivotIntake;
     private final AutoIntake autoIntake;
-  
     private final AutoSpeakerShoot autoSpeakerShoot;
+
 
 
 
@@ -188,7 +187,7 @@ public class RobotContainer {
         // Operator Buttons 
         armDriver.leftTrigger(0.15).whileTrue(new ShootIntoSpeaker(shooter));
 
-        armDriver.rightTrigger(.15).whileTrue(intake);
+        armDriver.rightTrigger(.15).onTrue(intake);
         armDriver.rightBumper().whileTrue(outtake);
         armDriver.leftBumper().whileTrue(reverseShooter);
 
@@ -196,7 +195,7 @@ public class RobotContainer {
         armDriver.b().onTrue(ampAngle);
         armDriver.a().onTrue(intakeUp);
        
-armDriver.axisGreaterThan(translationAxis, .1).whileTrue(manualPivotIntake);
+        armDriver.axisGreaterThan(translationAxis, .1).whileTrue(manualPivotIntake);
         armDriver.axisLessThan(translationAxis, -.1).whileTrue(manualPivotIntake);
       }
 
@@ -209,4 +208,5 @@ armDriver.axisGreaterThan(translationAxis, .1).whileTrue(manualPivotIntake);
         // An ExampleCommand will run in autonomous
         return autoChooser.getSelected();
     }
+
 }

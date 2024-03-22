@@ -11,6 +11,7 @@ public class Intake extends Command {
 
   private IntakeRollers intake;
 
+
   public Intake(IntakeRollers intake) {
 
     this.intake = intake;
@@ -19,11 +20,11 @@ public class Intake extends Command {
   }
 
   @Override
-  public void initialize() {}
+  public void initialize() {
+  }
 
   @Override
   public void execute() {
-
     intake.intake(-.7);
 
   }

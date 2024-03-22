@@ -28,7 +28,7 @@ public class Swerve extends SubsystemBase {
     public SwerveDriveOdometry swerveOdometry;
     public SwerveModule[] mSwerveMods;
     public Pigeon2 gyro;
-    public Field2d odometry;
+    public static Field2d odometry;
     public double speedMultiplier;
 
     public Swerve() {
