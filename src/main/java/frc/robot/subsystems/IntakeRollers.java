@@ -42,6 +42,6 @@ public class IntakeRollers extends SubsystemBase {
   @Override
   public void periodic() {
     // This method will be called once per scheduler run
-    SmartDashboard.putBoolean("limit switch status ", limit.get());
+    SmartDashboard.putBoolean("note intaked ", !limit.get());
   }
 }
