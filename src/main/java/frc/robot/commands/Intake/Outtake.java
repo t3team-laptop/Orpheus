@@ -6,19 +6,22 @@ package frc.robot.commands.Intake;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.IntakeRollers;
+import frc.robot.subsystems.RevBlinkin;
 import frc.robot.subsystems.IntakePivot;
 
 public class Outtake extends Command {
   private IntakeRollers intake;
   private IntakePivot pivot;
+  private RevBlinkin blink;
 
-
-  public Outtake(IntakeRollers intake, IntakePivot pivot) {
+  public Outtake(IntakeRollers intake, IntakePivot pivot, RevBlinkin blink) {
     
     this.intake = intake;
     addRequirements(intake);
     this.pivot = pivot;
     addRequirements(pivot);
+    this.blink = blink;
+    addRequirements(blink);
   }
 
   @Override
@@ -26,6 +29,7 @@ public class Outtake extends Command {
 
   @Override
   public void execute() {
+    blink.setEnabled();
     if(pivot.isAtAmpAngle()){
     intake.intake(.205); 
   }

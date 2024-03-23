@@ -174,4 +174,8 @@ public final class Constants {
                 kMaxAngularSpeedRadiansPerSecond, kMaxAngularSpeedRadiansPerSecondSquared);
     }
 
+    public static final class Blinkin{
+        public static final int BlinkinID = 0;
+    }
+
 }
