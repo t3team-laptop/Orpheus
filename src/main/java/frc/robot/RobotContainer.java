@@ -51,6 +51,7 @@ public class RobotContainer {
     private final IntakePivot intakePivot = new IntakePivot();
     private final Shooter shooter = new Shooter();
     private final IntakeRollers intakeRollers = new IntakeRollers();
+    
   
 
 
@@ -106,15 +107,16 @@ public class RobotContainer {
         rightClimberDown.addRequirements(rightClimber);
         rightClimberUp = new RightClimberUp(rightClimber);
         rightClimberUp.addRequirements(rightClimber);
-        intake = new Intake(intakeRollers);
+        intake = new Intake(intakeRollers, Robot.blink);
         intake.addRequirements(intakeRollers);
+        intake.addRequirements(Robot.blink);
         intakeDown = new IntakeDown(intakePivot);
         intakeDown.addRequirements(intakePivot);
         intakeUp = new IntakeUp(intakePivot);
         intakeUp.addRequirements(intakePivot);
         ampAngle = new AmpAngle(intakePivot);
         ampAngle.addRequirements(intakePivot);
-        outtake = new Outtake(intakeRollers, intakePivot);
+        outtake = new Outtake(intakeRollers, intakePivot, Robot.blink);
         outtake.addRequirements(intakeRollers, intakePivot);
         reverseShooter = new ReverseShooter(shooter);
         reverseShooter.addRequirements(shooter);
