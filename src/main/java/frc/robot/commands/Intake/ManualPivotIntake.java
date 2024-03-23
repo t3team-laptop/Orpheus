@@ -29,7 +29,7 @@ public class ManualPivotIntake extends Command {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    double yVal = MathUtil.applyDeadband(ySup.getAsDouble(), Constants.stickDeadband);
+    double yVal = MathUtil.applyDeadband(ySup.getAsDouble() *.8, Constants.stickDeadband);
     intake.manualRotate(yVal);
   }
 

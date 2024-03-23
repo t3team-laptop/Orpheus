@@ -8,21 +8,24 @@ package frc.robot.autos;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
-
+import frc.robot.subsystems.IntakePivot;
 import frc.robot.subsystems.IntakeRollers;
 import frc.robot.subsystems.Shooter;
 
 public class AutoSpeakerShoot extends Command {
   private Shooter shooter;
   private IntakeRollers intake;
+  private IntakePivot pivot;
   private Timer timer;
-  public AutoSpeakerShoot(Shooter shooter, IntakeRollers intake) {
+  public AutoSpeakerShoot(Shooter shooter, IntakeRollers intake, IntakePivot pivot) {
     this.intake = intake;
     this.shooter = shooter;
+    this.pivot = pivot;
     timer = new Timer();
 
     addRequirements(intake);
     addRequirements(shooter);
+    addRequirements(pivot);
 
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -41,10 +44,11 @@ public class AutoSpeakerShoot extends Command {
     shooter.setShooterLSpeed(1.0);
     shooter.setShooterRSpeed(1.0);
 
-    if(timer.get()> .9){
+    pivot.shoot();
+
+    if(pivot.pivotIsFinished()){
         intake.outtake(.6);
     }
-
   }
 
   // Called once the command ends or is interrupted.
@@ -58,6 +62,6 @@ public class AutoSpeakerShoot extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return timer.get() > 1.1;
+    return timer.get() > .5;
   }
 }

@@ -147,12 +147,13 @@ public final class Constants {
       public static final int INTAKE_MOTOR_ID = 14;
       public static final int INTAKE_PIVOT_ID = 15;
       public static final double p = 1; 
-      public static final double i = 0.1;
-      public static final double d = 0.1;
+      public static final double i = 0;
+      public static final double d = 0;
       public static final double tolerance = .01;
       public static final double retractAngle =20.0;
-      public static final double deployAngle = -420;
-      public static final double ampAngle = -175.32;
+      public static final double shootAngle = 2.0;  
+      public static final double deployAngle = -405.0;
+      public static final double ampAngle = -175.0;
       public static final int Intake_PIVOT_FOLLOWER_ID = 16;
     public static final int INTAKE_LIMIT_SWITCH = 0;
     }
