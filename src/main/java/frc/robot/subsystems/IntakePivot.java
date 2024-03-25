@@ -22,6 +22,7 @@ public class IntakePivot extends SubsystemBase {
   private static SparkAbsoluteEncoder sparkencoder;
   private static RelativeEncoder relEnc;
   private static boolean ampAngle = false;
+  private static boolean passAngle = false;
 
 
   public IntakePivot() {
@@ -65,26 +66,30 @@ public class IntakePivot extends SubsystemBase {
 
   public void manualRotate(double speed){
     ampAngle = false;
+    passAngle = false;
     intakePivot.set(speed);
+  }
+  public void passAngle(){
+    ampAngle = false;
+    passAngle = true;
+    setRotation(Constants.GroundIntake.passAngle/360);
   }
 
   public void deploy(){
     ampAngle = false;
+    passAngle = false;
     setRotation(Constants.GroundIntake.deployAngle/360);
   }
 
   public void retract(){
     ampAngle = false;
+    passAngle = false;
     setRotation(Constants.GroundIntake.retractAngle/360);
-  }
-
-  public void shoot(){
-    ampAngle = false;
-    setRotation(Constants.GroundIntake.shootAngle/360);
   }
 
   public void ampPosition(){
     ampAngle = true;
+    passAngle = false;
     setRotation(Constants.GroundIntake.ampAngle/360);
     
   }
@@ -97,6 +102,10 @@ public class IntakePivot extends SubsystemBase {
     return ampAngle;
   }
 
+  public boolean isAtPassAngle(){
+    return passAngle;
+  }
+
   public void stopPivot(){
     intakePivot.stopMotor();
   }
@@ -106,5 +115,6 @@ public class IntakePivot extends SubsystemBase {
   public void periodic() {
     SmartDashboard.putNumber("Ground Intake Motor Position", relEnc.getPosition() *10);
     SmartDashboard.putBoolean("amp angle", ampAngle);
+    SmartDashboard.putBoolean("pass angle", passAngle);
   }
 }

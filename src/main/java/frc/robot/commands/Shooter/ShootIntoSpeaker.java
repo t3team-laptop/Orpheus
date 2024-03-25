@@ -5,27 +5,19 @@ import frc.robot.subsystems.Shooter;
 public class ShootIntoSpeaker extends Command {
   /** Creates a new ShootIntoSpeaker. */
   private Shooter shooter;
-  private IntakePivot pivot;
-  public ShootIntoSpeaker(Shooter shooter, IntakePivot pivot) {
+  public ShootIntoSpeaker(Shooter shooter) {
     this.shooter = shooter;
-    this.pivot = pivot;
     addRequirements(shooter);
-    addRequirements(pivot);
   }
   // Called when the command is initially scheduled.
   @Override
   public void initialize() {
-    pivot.shoot();
   }
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    shooter.setShooterLSpeed(-.75);
-    shooter.setShooterRSpeed(-.75);
-
-    while(!pivot.pivotIsFinished()){
-      pivot.shoot();
-    }
+    shooter.setShooterLSpeed(-.5); 
+    shooter.setShooterRSpeed(-.5); 
 
   }
   // Called once the command ends or is interrupted.

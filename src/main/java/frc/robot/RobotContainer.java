@@ -120,14 +120,13 @@ public class RobotContainer {
         outtake.addRequirements(intakeRollers, intakePivot);
         reverseShooter = new ReverseShooter(shooter);
         reverseShooter.addRequirements(shooter);
-        shootIntoSpeaker = new ShootIntoSpeaker(shooter, intakePivot);
+        shootIntoSpeaker = new ShootIntoSpeaker(shooter);
         shootIntoSpeaker.addRequirements(shooter);
-        shootIntoSpeaker.addRequirements(intakePivot);
         manualPivotIntake = new ManualPivotIntake(intakePivot, () -> armDriver.getRawAxis(translationAxis));
         manualPivotIntake.addRequirements(intakePivot);
         autoIntake = new AutoIntake(intakeRollers);
         autoIntake.addRequirements(intakeRollers);
-        autoSpeakerShoot = new AutoSpeakerShoot(shooter, intakeRollers, intakePivot);
+        autoSpeakerShoot = new AutoSpeakerShoot(shooter, intakeRollers);
         autoSpeakerShoot.addRequirements(shooter, intakeRollers, intakePivot);
         slowMode = new SlowMode(s_Swerve);
         slowMode.addRequirements(s_Swerve);
@@ -193,7 +192,7 @@ public class RobotContainer {
         baseDriver.rightTrigger(0.25).whileTrue(rightClimberUp);
         
         // Operator Buttons 
-        armDriver.leftTrigger(0.15).whileTrue(new ShootIntoSpeaker(shooter, intakePivot));
+        armDriver.leftTrigger(0.15).whileTrue(new ShootIntoSpeaker(shooter));
 
         armDriver.rightTrigger(.15).whileTrue(intake);
         armDriver.rightBumper().whileTrue(outtake);

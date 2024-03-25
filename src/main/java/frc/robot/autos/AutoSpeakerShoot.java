@@ -15,17 +15,14 @@ import frc.robot.subsystems.Shooter;
 public class AutoSpeakerShoot extends Command {
   private Shooter shooter;
   private IntakeRollers intake;
-  private IntakePivot pivot;
   private Timer timer;
-  public AutoSpeakerShoot(Shooter shooter, IntakeRollers intake, IntakePivot pivot) {
+  public AutoSpeakerShoot(Shooter shooter, IntakeRollers intake) {
     this.intake = intake;
     this.shooter = shooter;
-    this.pivot = pivot;
     timer = new Timer();
 
     addRequirements(intake);
     addRequirements(shooter);
-    addRequirements(pivot);
 
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -41,12 +38,11 @@ public class AutoSpeakerShoot extends Command {
   @Override
   public void execute() {
 
-    shooter.setShooterLSpeed(1.0);
-    shooter.setShooterRSpeed(1.0);
+    shooter.setShooterLSpeed(-.75);
+    shooter.setShooterRSpeed(-.75);
 
-    pivot.shoot();
 
-    if(pivot.pivotIsFinished()){
+    if(timer.get() > .25){
         intake.outtake(.6);
     }
   }

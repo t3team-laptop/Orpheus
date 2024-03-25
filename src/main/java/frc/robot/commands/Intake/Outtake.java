@@ -33,6 +33,9 @@ public class Outtake extends Command {
     if(pivot.isAtAmpAngle()){
     intake.intake(.205); 
   }
+  else if (pivot.isAtPassAngle()){
+    intake.intake(1.0);
+  }
   else{
     intake.intake(.6); 
   }
