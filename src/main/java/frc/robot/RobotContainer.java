@@ -69,6 +69,7 @@ public class RobotContainer {
     private final ShootIntoSpeaker shootIntoSpeaker;
     private final SlowMode slowMode;
     private final FastMode fastMode;
+    private final PassAngle passAngle;
    
     private final ManualPivotIntake manualPivotIntake;
     private final AutoIntake autoIntake;
@@ -132,6 +133,8 @@ public class RobotContainer {
         slowMode.addRequirements(s_Swerve);
         fastMode = new FastMode(s_Swerve);
         fastMode.addRequirements(s_Swerve);
+        passAngle = new PassAngle(intakePivot);
+        passAngle.addRequirements(intakePivot);
 
 
 
@@ -201,6 +204,7 @@ public class RobotContainer {
         armDriver.y().onTrue(intakeDown);
         armDriver.b().onTrue(ampAngle);
         armDriver.a().onTrue(intakeUp);
+        armDriver.x().onTrue(passAngle);
        
         armDriver.axisGreaterThan(translationAxis, .1).whileTrue(manualPivotIntake);
         armDriver.axisLessThan(translationAxis, -.1).whileTrue(manualPivotIntake);
