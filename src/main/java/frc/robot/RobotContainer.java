@@ -69,7 +69,6 @@ public class RobotContainer {
     private final ShootIntoSpeaker shootIntoSpeaker;
     private final SlowMode slowMode;
     private final FastMode fastMode;
-    private final PassAngle passAngle;
    
     private final ManualPivotIntake manualPivotIntake;
     private final AutoIntake autoIntake;
@@ -133,8 +132,6 @@ public class RobotContainer {
         slowMode.addRequirements(s_Swerve);
         fastMode = new FastMode(s_Swerve);
         fastMode.addRequirements(s_Swerve);
-        passAngle = new PassAngle(intakePivot);
-        passAngle.addRequirements(intakePivot);
 
 
 
@@ -186,11 +183,11 @@ public class RobotContainer {
      */
     private void configureButtonBindings() { 
         baseDriver.y().onTrue(new InstantCommand(() -> s_Swerve.zeroHeading()));
-         baseDriver.b().toggleOnTrue(slowMode);
-         baseDriver.b().toggleOnFalse(fastMode);
-         
-        baseDriver.leftBumper().whileTrue(leftClimberDown);
-        baseDriver.leftTrigger(0.25).whileTrue(leftClimberUp);
+        baseDriver.b().onTrue(slowMode);
+        baseDriver.a().onTrue(fastMode);
+
+        baseDriver.leftBumper().whileTrue(leftClimberUp);
+        baseDriver.leftTrigger(0.25).whileTrue(leftClimberDown);
         baseDriver.rightBumper().whileTrue(rightClimberDown);
         baseDriver.rightTrigger(0.25).whileTrue(rightClimberUp);
         
@@ -204,7 +201,6 @@ public class RobotContainer {
         armDriver.y().onTrue(intakeDown);
         armDriver.b().onTrue(ampAngle);
         armDriver.a().onTrue(intakeUp);
-        armDriver.x().onTrue(passAngle);
        
         armDriver.axisGreaterThan(translationAxis, .1).whileTrue(manualPivotIntake);
         armDriver.axisLessThan(translationAxis, -.1).whileTrue(manualPivotIntake);
