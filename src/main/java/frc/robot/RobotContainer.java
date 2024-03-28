@@ -51,7 +51,7 @@ public class RobotContainer {
     private final IntakePivot intakePivot = new IntakePivot();
     private final Shooter shooter = new Shooter();
     private final IntakeRollers intakeRollers = new IntakeRollers();
-    
+    private final Vision vision = new Vision();
   
 
 
@@ -69,7 +69,7 @@ public class RobotContainer {
     private final ShootIntoSpeaker shootIntoSpeaker;
     private final SlowMode slowMode;
     private final FastMode fastMode;
-    private final PassAngle passAngle;
+    
    
     private final ManualPivotIntake manualPivotIntake;
     private final AutoIntake autoIntake;
@@ -133,8 +133,7 @@ public class RobotContainer {
         slowMode.addRequirements(s_Swerve);
         fastMode = new FastMode(s_Swerve);
         fastMode.addRequirements(s_Swerve);
-        passAngle = new PassAngle(intakePivot);
-        passAngle.addRequirements(intakePivot);
+
 
 
 
@@ -186,8 +185,23 @@ public class RobotContainer {
      */
     private void configureButtonBindings() { 
         baseDriver.y().onTrue(new InstantCommand(() -> s_Swerve.zeroHeading()));
-         baseDriver.b().toggleOnTrue(slowMode);
-         baseDriver.b().toggleOnFalse(fastMode);
+         baseDriver.b().onTrue(slowMode);
+         baseDriver.b().onTrue(fastMode);
+         baseDriver.a().whileTrue(new TeleopSwerve(
+                s_Swerve,
+                () -> -baseDriver.getRawAxis(translationAxis),
+                () -> -baseDriver.getRawAxis(strafeAxis),
+                () -> vision.calculateOffsetSpeaker(),
+                () -> baseDriver.leftBumper().getAsBoolean()
+            ));
+        baseDriver.x().whileTrue(new TeleopSwerve(
+                s_Swerve,
+                () -> -baseDriver.getRawAxis(translationAxis),
+                () -> -baseDriver.getRawAxis(strafeAxis),
+                () -> vision.calculateOffsetAmp(),
+                () -> baseDriver.leftBumper().getAsBoolean()
+            ));
+         
          
         baseDriver.leftBumper().whileTrue(leftClimberDown);
         baseDriver.leftTrigger(0.25).whileTrue(leftClimberUp);
@@ -204,7 +218,6 @@ public class RobotContainer {
         armDriver.y().onTrue(intakeDown);
         armDriver.b().onTrue(ampAngle);
         armDriver.a().onTrue(intakeUp);
-        armDriver.x().onTrue(passAngle);
        
         armDriver.axisGreaterThan(translationAxis, .1).whileTrue(manualPivotIntake);
         armDriver.axisLessThan(translationAxis, -.1).whileTrue(manualPivotIntake);

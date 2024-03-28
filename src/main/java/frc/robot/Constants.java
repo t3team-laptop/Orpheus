@@ -1,11 +1,18 @@
 package frc.robot;
 
+import java.io.IOException;
+
 import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 import com.ctre.phoenix6.signals.SensorDirectionValue;
 
+import edu.wpi.first.apriltag.AprilTagFieldLayout;
+import edu.wpi.first.apriltag.AprilTagFields;
 import edu.wpi.first.math.geometry.Rotation2d;
+import edu.wpi.first.math.geometry.Rotation3d;
+import edu.wpi.first.math.geometry.Transform3d;
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.geometry.Translation3d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.trajectory.TrapezoidProfile;
 import edu.wpi.first.math.util.Units;
@@ -146,22 +153,21 @@ public final class Constants {
     public static final class GroundIntake{
       public static final int INTAKE_MOTOR_ID = 14;
       public static final int INTAKE_PIVOT_ID = 15;
-      public static final double p = 1.6; 
-      public static final double i = 0.001;
-      public static final double d = 0;
+      public static final double p = 1; 
+      public static final double i = 0.1;
+      public static final double d = 0.1;
       public static final double tolerance = .01;
-      public static final double retractAngle =47.0; 
-      public static final double deployAngle = -350.0;
-      public static final double ampAngle = -120.0;
-      public static final double passAngle = -180;
+      public static final double retractAngle =20.0;
+      public static final double deployAngle = -420;
+      public static final double ampAngle = -175.32;
       public static final int Intake_PIVOT_FOLLOWER_ID = 16;
     public static final int INTAKE_LIMIT_SWITCH = 0;
     }
 
 
     public static final class AutoConstants { //TODO: The below constants are used in the example auto, and must be tuned to specific robot
-        public static final double kMaxSpeedMetersPerSecond = 3; //used to be 3
-        public static final double kMaxAccelerationMetersPerSecondSquared = 3;
+        public static final double kMaxSpeedMetersPerSecond = 5; //used to be 3
+        public static final double kMaxAccelerationMetersPerSecondSquared = 5;
         public static final double kMaxAngularSpeedRadiansPerSecond = Math.PI;
         public static final double kMaxAngularSpeedRadiansPerSecondSquared = Math.PI;
     
@@ -175,8 +181,49 @@ public final class Constants {
                 kMaxAngularSpeedRadiansPerSecond, kMaxAngularSpeedRadiansPerSecondSquared);
     }
 
+    public static final class Vision{
+        public static final String CAM_NAME = "Front Cam";
+        public static final String CAM_NAME_BACK = "Back Cam";
+        public static final Transform3d ROBOT_TO_FRONT_CAM_TRANSFORM =
+            new Transform3d(
+                new Translation3d(
+                    Units.inchesToMeters(0),
+                    Units.inchesToMeters(14.305),
+                    Units.inchesToMeters(16.12)),
+                new Rotation3d(Units.degreesToRadians(0), Units.degreesToRadians(33), 0));
+
+        public static final Transform3d ROBOT_TO_BACK_CAM_TRANSFORM =
+            new Transform3d(
+                new Translation3d(
+                    Units.inchesToMeters(0),
+                    Units.inchesToMeters(-13.1),
+                    Units.inchesToMeters(5.541)),
+                new Rotation3d(Units.degreesToRadians(0), Units.degreesToRadians(30), 0));
+        
+    }
+
+    public static final class FieldConstants{
+        public static final double LENGTH_METERS = 16.54175;
+        public static final double WIDTH_METERS = 8.0137;
+
+        public static AprilTagFieldLayout field;
+        static{
+            try{
+                field = AprilTagFieldLayout.loadFromResource(AprilTagFields.k2024Crescendo.m_resourceFile);
+            }
+            catch(IOException e){
+                e.printStackTrace();
+                field = null;
+            }
+        }
+        
+        
+        public static final AprilTagFieldLayout APRIL_TAG_FIELD_LAYOUT = field;
+    }
+
     public static final class Blinkin{
         public static final int BlinkinID = 0;
+        public static final int BlinkinUnderID = 1;
     }
 
 }
