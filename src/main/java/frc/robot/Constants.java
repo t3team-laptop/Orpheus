@@ -153,21 +153,21 @@ public final class Constants {
     public static final class GroundIntake{
       public static final int INTAKE_MOTOR_ID = 14;
       public static final int INTAKE_PIVOT_ID = 15;
-      public static final double p = 1; 
-      public static final double i = 0.1;
-      public static final double d = 0.1;
+      public static final double p = 1.6; 
+      public static final double i = 0.001;
+      public static final double d = 0;
       public static final double tolerance = .01;
-      public static final double retractAngle =20.0;
-      public static final double deployAngle = -420;
-      public static final double ampAngle = -175.32;
+      public static final double retractAngle =47.0;
+      public static final double deployAngle = -350;
+      public static final double ampAngle = -120.0;
       public static final int Intake_PIVOT_FOLLOWER_ID = 16;
     public static final int INTAKE_LIMIT_SWITCH = 0;
     }
 
 
     public static final class AutoConstants { //TODO: The below constants are used in the example auto, and must be tuned to specific robot
-        public static final double kMaxSpeedMetersPerSecond = 5; //used to be 3
-        public static final double kMaxAccelerationMetersPerSecondSquared = 5;
+        public static final double kMaxSpeedMetersPerSecond = 3; //used to be 3
+        public static final double kMaxAccelerationMetersPerSecondSquared = 3;
         public static final double kMaxAngularSpeedRadiansPerSecond = Math.PI;
         public static final double kMaxAngularSpeedRadiansPerSecondSquared = Math.PI;
     

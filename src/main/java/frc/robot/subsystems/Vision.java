@@ -4,6 +4,7 @@ import edu.wpi.first.math.controller.PIDController;
 import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.lib.ASUtil;
 import frc.robot.Constants;
@@ -23,7 +24,7 @@ public class Vision extends SubsystemBase {
   private int speakerTag;
   private int ampTag;
 
-  PIDController rotationController = new PIDController(.015, 0.01, 0.001);
+  PIDController rotationController = new PIDController(.015, 0.015, 0);
 
 
   /** Creates a new Vision. */
@@ -52,15 +53,16 @@ public class Vision extends SubsystemBase {
     double roatationSpeed;
     int index = 0;
 
-    for(int i = 0; i < result.getTargets().size(); i++){
-      if(result.getTargets().get(i).getFiducialId() == speakerTag){
-        index = i;
-      }
-    }
     if (result.hasTargets()) {
+      for(int i = 0; i < result.getTargets().size(); i++){
+        if(result.getTargets().get(i).getFiducialId() == speakerTag){
+          index = i;
+        }
+      }
       double yaw = (result.getTargets().get(index).getYaw());
       roatationSpeed = rotationController.calculate(yaw, 0);
     } 
+   
     else{roatationSpeed = 0;}
     return roatationSpeed;
   }
@@ -79,5 +81,7 @@ public class Vision extends SubsystemBase {
 
 
   @Override
-  public void periodic() {}
+  public void periodic() {
+    
+  }
 }

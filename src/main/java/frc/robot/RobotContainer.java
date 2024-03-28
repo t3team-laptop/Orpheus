@@ -203,8 +203,8 @@ public class RobotContainer {
             ));
          
          
-        baseDriver.leftBumper().whileTrue(leftClimberDown);
-        baseDriver.leftTrigger(0.25).whileTrue(leftClimberUp);
+        baseDriver.leftBumper().whileTrue(leftClimberUp);
+        baseDriver.leftTrigger(0.25).whileTrue(leftClimberDown);
         baseDriver.rightBumper().whileTrue(rightClimberDown);
         baseDriver.rightTrigger(0.25).whileTrue(rightClimberUp);
         
