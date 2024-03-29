@@ -153,7 +153,6 @@ public final class Constants {
       public static final double retractAngle =47.0; 
       public static final double deployAngle = -350.0;
       public static final double ampAngle = -120.0;
-      public static final double passAngle = -180;
       public static final int Intake_PIVOT_FOLLOWER_ID = 16;
     public static final int INTAKE_LIMIT_SWITCH = 0;
     }

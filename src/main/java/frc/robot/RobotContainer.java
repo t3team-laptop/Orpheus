@@ -186,8 +186,8 @@ public class RobotContainer {
         baseDriver.b().onTrue(slowMode);
         baseDriver.a().onTrue(fastMode);
 
-        baseDriver.leftBumper().whileTrue(leftClimberUp);
-        baseDriver.leftTrigger(0.25).whileTrue(leftClimberDown);
+        baseDriver.leftBumper().whileTrue(leftClimberDown);
+        baseDriver.leftTrigger(0.25).whileTrue(leftClimberUp);
         baseDriver.rightBumper().whileTrue(rightClimberDown);
         baseDriver.rightTrigger(0.25).whileTrue(rightClimberUp);
         
