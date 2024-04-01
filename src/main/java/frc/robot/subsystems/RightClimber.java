@@ -21,7 +21,7 @@ public class RightClimber extends SubsystemBase {
     climberPullR = new TalonFX(Constants.Climbers.CLIMBER_MOTOR_PULL_R);
     climberPullR.setNeutralMode(NeutralModeValue.Brake);
     climberConfig = new TalonFXConfiguration();
-    climberConfig.CurrentLimits.SupplyCurrentLimit = 20.0;
+    climberConfig.CurrentLimits.SupplyCurrentLimit = 40.0;
     climberConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
     climberConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     climberPullR.getConfigurator().apply(climberConfig);
