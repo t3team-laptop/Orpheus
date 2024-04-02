@@ -5,7 +5,6 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
-import com.ctre.phoenix6.configs.TalonFXConfigurator;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
@@ -21,7 +20,7 @@ public class RightClimber extends SubsystemBase {
     climberPullR = new TalonFX(Constants.Climbers.CLIMBER_MOTOR_PULL_R);
     climberPullR.setNeutralMode(NeutralModeValue.Brake);
     climberConfig = new TalonFXConfiguration();
-    climberConfig.CurrentLimits.SupplyCurrentLimit = 5.0;
+    climberConfig.CurrentLimits.SupplyCurrentLimit = 20.0;
     climberConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
     climberConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     climberPullR.getConfigurator().apply(climberConfig);

@@ -21,15 +21,23 @@ public class RevBlinkin extends SubsystemBase {
   }
 
   public void setDisabled() {
-    blinkin.set(0.59);
+    blinkin.set(.61);
   }
 
   public void setEnabled() {
-    blinkin.set(0.59);
+    blinkin.set(.61);
   }
 
   public void isIntake() {
-    blinkin.set(.73);
+    blinkin.set(.77);
+  }
+
+  public void intakeIsRunning(){
+    blinkin.set(-.05);
+  }
+
+  public void shooterRunning(){
+    blinkin.set(-.15);
   }
 
   @Override

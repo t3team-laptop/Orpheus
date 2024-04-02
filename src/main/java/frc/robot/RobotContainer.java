@@ -51,7 +51,7 @@ public class RobotContainer {
     private final IntakePivot intakePivot = new IntakePivot();
     private final Shooter shooter = new Shooter();
     private final IntakeRollers intakeRollers = new IntakeRollers();
-    
+    private final Vision vision = new Vision();
   
 
 
@@ -69,6 +69,7 @@ public class RobotContainer {
     private final ShootIntoSpeaker shootIntoSpeaker;
     private final SlowMode slowMode;
     private final FastMode fastMode;
+    
    
     private final ManualPivotIntake manualPivotIntake;
     private final AutoIntake autoIntake;
@@ -136,6 +137,7 @@ public class RobotContainer {
 
 
 
+
         NamedCommands.registerCommand("shoot", shootIntoSpeaker);
         NamedCommands.registerCommand("intake down", intakeDown);
         NamedCommands.registerCommand("intake up", intakeUp);
@@ -183,11 +185,26 @@ public class RobotContainer {
      */
     private void configureButtonBindings() { 
         baseDriver.y().onTrue(new InstantCommand(() -> s_Swerve.zeroHeading()));
-        baseDriver.b().onTrue(slowMode);
-        baseDriver.a().onTrue(fastMode);
-
-        baseDriver.leftBumper().whileTrue(leftClimberDown);
-        baseDriver.leftTrigger(0.25).whileTrue(leftClimberUp);
+         baseDriver.b().onTrue(slowMode);
+         baseDriver.b().onTrue(fastMode);
+         baseDriver.a().whileTrue(new TeleopSwerve(
+                s_Swerve,
+                () -> -baseDriver.getRawAxis(translationAxis),
+                () -> -baseDriver.getRawAxis(strafeAxis),
+                () -> vision.calculateOffsetSpeaker(),
+                () -> baseDriver.leftBumper().getAsBoolean()
+            ));
+        baseDriver.x().whileTrue(new TeleopSwerve(
+                s_Swerve,
+                () -> -baseDriver.getRawAxis(translationAxis),
+                () -> -baseDriver.getRawAxis(strafeAxis),
+                () -> vision.calculateOffsetAmp(),
+                () -> baseDriver.leftBumper().getAsBoolean()
+            ));
+         
+         
+        baseDriver.leftBumper().whileTrue(leftClimberUp);
+        baseDriver.leftTrigger(0.25).whileTrue(leftClimberDown);
         baseDriver.rightBumper().whileTrue(rightClimberDown);
         baseDriver.rightTrigger(0.25).whileTrue(rightClimberUp);
         
