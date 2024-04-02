@@ -4,28 +4,28 @@
     {
       "anchor": {
         "x": 0.7,
-        "y": 4.401663085651201
+        "y": 4.4
       },
       "prevControl": null,
       "nextControl": {
         "x": 1.0992658993621665,
-        "y": 4.021873571623774
+        "y": 4.020210485972574
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "right subwoofer"
     },
     {
       "anchor": {
-        "x": 2.3,
-        "y": 4.05
+        "x": 2.4,
+        "y": 4.12513604548266
       },
       "prevControl": {
-        "x": 1.2999999999999998,
-        "y": 4.05
+        "x": 1.4,
+        "y": 4.12513604548266
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "stage note"
     }
   ],
   "rotationTargets": [],
