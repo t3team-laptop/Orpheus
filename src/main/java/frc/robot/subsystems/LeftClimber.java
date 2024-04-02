@@ -20,7 +20,7 @@ public class LeftClimber extends SubsystemBase {
      climberPullL = new TalonFX(Constants.Climbers.CLIMBER_MOTOR_PULL_L);
      climberPullL.setNeutralMode(NeutralModeValue.Brake);
      climberConfig = new TalonFXConfiguration();
-     climberConfig.CurrentLimits.SupplyCurrentLimit = 40.0;
+     climberConfig.CurrentLimits.SupplyCurrentLimit = 20.0;
      climberConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
      climberConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
      climberPullL.getConfigurator().apply(climberConfig);
