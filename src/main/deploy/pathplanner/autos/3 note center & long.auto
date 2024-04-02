@@ -142,6 +142,69 @@
           "data": {
             "name": "SpeakerShoot"
           }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "intake down"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "center long left"
+                }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 1.0
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "intake"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "intake up"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "long left center return"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "SpeakerShoot"
+          }
         }
       ]
     }

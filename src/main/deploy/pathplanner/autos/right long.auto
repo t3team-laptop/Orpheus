@@ -2,10 +2,10 @@
   "version": 1.0,
   "startingPose": {
     "position": {
-      "x": 1.36,
-      "y": 5.57
+      "x": 0.7,
+      "y": 4.4
     },
-    "rotation": 180.0
+    "rotation": 120.0
   },
   "command": {
     "type": "sequential",
@@ -30,7 +30,13 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Center Leave Zone"
+                  "pathName": "right long"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "intake down"
                 }
               },
               {
@@ -40,7 +46,7 @@
                     {
                       "type": "wait",
                       "data": {
-                        "waitTime": 0.1
+                        "waitTime": 1.0
                       }
                     },
                     {
@@ -60,78 +66,15 @@
           "data": {
             "commands": [
               {
-                "type": "named",
-                "data": {
-                  "name": "intake up"
-                }
-              },
-              {
                 "type": "path",
                 "data": {
-                  "pathName": "return"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "SpeakerShoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "intake down"
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "find second note"
+                  "pathName": "right long return"
                 }
               },
-              {
-                "type": "sequential",
-                "data": {
-                  "commands": [
-                    {
-                      "type": "wait",
-                      "data": {
-                        "waitTime": 0.25
-                      }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "intake"
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
               {
                 "type": "named",
                 "data": {
                   "name": "intake up"
-                }
-              },
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "return from second note"
                 }
               }
             ]

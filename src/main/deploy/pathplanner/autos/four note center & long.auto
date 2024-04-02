@@ -81,19 +81,13 @@
           }
         },
         {
-          "type": "named",
-          "data": {
-            "name": "intake down"
-          }
-        },
-        {
           "type": "parallel",
           "data": {
             "commands": [
               {
-                "type": "path",
+                "type": "named",
                 "data": {
-                  "pathName": "find second note"
+                  "name": "intake down"
                 }
               },
               {
@@ -104,6 +98,25 @@
                       "type": "wait",
                       "data": {
                         "waitTime": 0.25
+                      }
+                    },
+                    {
+                      "type": "path",
+                      "data": {
+                        "pathName": "find second note"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 0.4
                       }
                     },
                     {
@@ -141,6 +154,75 @@
           "type": "named",
           "data": {
             "name": "SpeakerShoot"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "find third note"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "intake down"
+                }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 0.3
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "intake"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "intake up"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "return from third note"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "SpeakerShoot"
+          }
+        },
+        {
+          "type": "path",
+          "data": {
+            "pathName": "center long left"
           }
         }
       ]
