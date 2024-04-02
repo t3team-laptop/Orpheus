@@ -3,16 +3,16 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 1.3,
-        "y": 5.5
+        "x": 1.359026467020729,
+        "y": 5.566113857248358
       },
       "prevControl": null,
       "nextControl": {
-        "x": 1.2917093521057397,
-        "y": 4.011477488025166
+        "x": 1.3507358191264687,
+        "y": 4.077591345273524
       },
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "center subwoofer"
     },
     {
       "anchor": {
@@ -25,7 +25,7 @@
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": null
+      "linkedName": "stage note"
     }
   ],
   "rotationTargets": [],

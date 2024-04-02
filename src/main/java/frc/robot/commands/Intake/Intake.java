@@ -33,12 +33,18 @@ public class Intake extends Command {
     if(intake.isIntaked()){
       blinkin.isIntake();
     }
+    else{
+      blinkin.intakeIsRunning();
+    }
 
   }
 
   @Override
   public void end(boolean interrupted) {
     intake.stop();
+    if(!intake.isIntaked()){
+      blinkin.setEnabled();
+    }
   }
 
   @Override

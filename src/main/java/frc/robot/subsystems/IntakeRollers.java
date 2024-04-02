@@ -4,6 +4,7 @@
 
 package frc.robot.subsystems;
 
+import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
@@ -16,11 +17,15 @@ public class IntakeRollers extends SubsystemBase {
   /** Creates a new Intake. */
   private static TalonFX intakeMotor;
   DigitalInput limit = new DigitalInput(Constants.GroundIntake.INTAKE_LIMIT_SWITCH);
-
+  TalonFXConfiguration intakeConfig;
   public IntakeRollers() {
     intakeMotor = new TalonFX(Constants.GroundIntake.INTAKE_MOTOR_ID);
+
+    intakeConfig = new TalonFXConfiguration();
+    intakeConfig.CurrentLimits.SupplyCurrentLimit = 20.0;
+    intakeConfig.CurrentLimits.SupplyCurrentLimitEnable = false;
     intakeMotor.setNeutralMode(NeutralModeValue.Coast);
-    intakeMotor.setSafetyEnabled(true);
+    intakeMotor.getConfigurator().apply(intakeConfig);
   }
 
   public void intake(double speed){

@@ -4,28 +4,44 @@
     {
       "anchor": {
         "x": 0.7,
-        "y": 6.7
+        "y": 4.4
       },
       "prevControl": null,
       "nextControl": {
-        "x": 0.9653111062996897,
-        "y": 7.15953231592337
+        "x": 1.0992658993621665,
+        "y": 4.020210485972574
       },
       "isLocked": false,
-      "linkedName": "left subwoofer"
+      "linkedName": "right subwoofer"
     },
     {
       "anchor": {
-        "x": 2.9,
-        "y": 7.0
+        "x": 3.4351272005599336,
+        "y": 1.8100105564372968
       },
       "prevControl": {
-        "x": 0.9082774955277897,
-        "y": 7.0
+        "x": 1.9726387170532327,
+        "y": 2.605581336028348
+      },
+      "nextControl": {
+        "x": 4.897615684066635,
+        "y": 1.014439776846244
+      },
+      "isLocked": false,
+      "linkedName": null
+    },
+    {
+      "anchor": {
+        "x": 8.270256540513081,
+        "y": 0.758301632210201
+      },
+      "prevControl": {
+        "x": 7.270256540513081,
+        "y": 0.758301632210201
       },
       "nextControl": null,
       "isLocked": false,
-      "linkedName": "ampside note"
+      "linkedName": "rightmost center note"
     }
   ],
   "rotationTargets": [
@@ -38,8 +54,8 @@
   "constraintZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 3.0,
-    "maxAcceleration": 3.0,
+    "maxVelocity": 4.5,
+    "maxAcceleration": 4.5,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0
   },
@@ -51,8 +67,8 @@
   "reversed": false,
   "folder": null,
   "previewStartingState": {
-    "rotation": -120.0,
+    "rotation": 120.0,
     "velocity": 0
   },
-  "useDefaultConstraints": false
+  "useDefaultConstraints": true
 }

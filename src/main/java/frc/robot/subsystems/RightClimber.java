@@ -8,6 +8,7 @@ import com.ctre.phoenix6.configs.TalonFXConfiguration;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants;
 
@@ -17,18 +18,15 @@ public class RightClimber extends SubsystemBase {
   TalonFXConfiguration climberConfig;
   public RightClimber() {
     climberPullR = new TalonFX(Constants.Climbers.CLIMBER_MOTOR_PULL_R);
-    climberPullR.setSafetyEnabled(true);
     climberPullR.setNeutralMode(NeutralModeValue.Brake);
     climberConfig = new TalonFXConfiguration();
-    climberConfig.CurrentLimits.SupplyCurrentLimit = 30.0;
+    climberConfig.CurrentLimits.SupplyCurrentLimit = 20.0;
     climberConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
+    climberConfig.MotorOutput.NeutralMode = NeutralModeValue.Brake;
     climberPullR.getConfigurator().apply(climberConfig);
   }
 
-  @Override
-  public void periodic() {
-    // This method will be called once per scheduler run
-  }
+  
   public void climberMove(double speedR){
     climberPullR.set(speedR);
   }
@@ -36,5 +34,9 @@ public class RightClimber extends SubsystemBase {
   public void climbersStop(){
     climberPullR.stopMotor();
     
+  }
+  @Override
+  public void periodic(){
+    SmartDashboard.putNumber("R current limit", climberConfig.CurrentLimits.SupplyCurrentLimit);
   }
 }
