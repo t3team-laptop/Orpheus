@@ -1,13 +1,15 @@
 package frc.robot.commands.Shooter;
 import edu.wpi.first.wpilibj2.command.Command;
-import frc.robot.subsystems.IntakePivot;
+import frc.robot.subsystems.RevBlinkin;
 import frc.robot.subsystems.Shooter;
 public class ShootIntoSpeaker extends Command {
   /** Creates a new ShootIntoSpeaker. */
   private Shooter shooter;
+
   public ShootIntoSpeaker(Shooter shooter) {
     this.shooter = shooter;
     addRequirements(shooter);
+
   }
   // Called when the command is initially scheduled.
   @Override
@@ -18,6 +20,7 @@ public class ShootIntoSpeaker extends Command {
   public void execute() {
     shooter.setShooterLSpeed(-.7); 
     shooter.setShooterRSpeed(-.6); 
+
 
   }
   // Called once the command ends or is interrupted.

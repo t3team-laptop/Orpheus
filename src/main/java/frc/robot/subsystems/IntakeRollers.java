@@ -23,7 +23,7 @@ public class IntakeRollers extends SubsystemBase {
 
     intakeConfig = new TalonFXConfiguration();
     intakeConfig.CurrentLimits.SupplyCurrentLimit = 20.0;
-    intakeConfig.CurrentLimits.SupplyCurrentLimitEnable = true;
+    intakeConfig.CurrentLimits.SupplyCurrentLimitEnable = false;
     intakeMotor.setNeutralMode(NeutralModeValue.Coast);
     intakeMotor.getConfigurator().apply(intakeConfig);
   }
