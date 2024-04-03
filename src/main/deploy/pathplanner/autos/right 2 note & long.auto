@@ -106,9 +106,28 @@
           }
         },
         {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "right long return"
+                }
+              },
+              {
+                "type": "named",
+                "data": {
+                  "name": "intake up"
+                }
+              }
+            ]
+          }
+        },
+        {
           "type": "named",
           "data": {
-            "name": "intake up"
+            "name": "SpeakerShoot"
           }
         }
       ]
