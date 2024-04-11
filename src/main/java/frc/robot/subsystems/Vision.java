@@ -24,7 +24,7 @@ public class Vision extends SubsystemBase {
   private int speakerTag;
   private int ampTag;
 
-  PIDController rotationController = new PIDController(.015, 0.015, 0);
+  PIDController rotationController = new PIDController(.02, 0.0005, 0.001);
 
 
   /** Creates a new Vision. */
@@ -50,19 +50,22 @@ public class Vision extends SubsystemBase {
 
   public double calculateOffsetSpeaker() {
     var result = cam.getLatestResult();
-    double roatationSpeed;
-    int index = 0;
+    double roatationSpeed = 0;
+    boolean hasSpeakerTag = false;
+    int index = -1;
 
     if (result.hasTargets()) {
       for(int i = 0; i < result.getTargets().size(); i++){
         if(result.getTargets().get(i).getFiducialId() == speakerTag){
           index = i;
+          hasSpeakerTag = true;
         }
       }
-      double yaw = (result.getTargets().get(index).getYaw());
-      roatationSpeed = rotationController.calculate(yaw, 0);
+      if(hasSpeakerTag){
+        double yaw = (result.getTargets().get(index).getYaw());
+        roatationSpeed = rotationController.calculate(yaw, -3);
+      }
     } 
-   
     else{roatationSpeed = 0;}
     return roatationSpeed;
   }

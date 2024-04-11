@@ -31,10 +31,10 @@ public class Outtake extends Command {
   public void execute() {
     blink.setEnabled();
     if(pivot.isAtAmpAngle()){
-    intake.intake(.205); 
+    intake.intake(.21); 
   }
   else{
-    intake.intake(.6); 
+    intake.intake(.6); //change to .6
   }
   }
 
