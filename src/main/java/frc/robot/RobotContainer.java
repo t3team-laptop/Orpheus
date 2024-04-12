@@ -194,6 +194,13 @@ public class RobotContainer {
                 () -> vision.calculateOffsetSpeaker(),
                 () -> baseDriver.leftBumper().getAsBoolean()
             ));
+        baseDriver.x().whileTrue(new TeleopSwerve(
+                s_Swerve,
+                () -> -baseDriver.getRawAxis(translationAxis),
+                () -> -baseDriver.getRawAxis(strafeAxis),
+                () -> vision.calculateOffsetNote(),
+                () -> baseDriver.leftBumper().getAsBoolean()
+            ));
          
          
         baseDriver.leftBumper().whileTrue(leftClimberUp);

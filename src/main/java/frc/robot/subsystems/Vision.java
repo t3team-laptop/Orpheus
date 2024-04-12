@@ -22,7 +22,6 @@ public class Vision extends SubsystemBase {
   private PhotonCamera camBack;
 
   private int speakerTag;
-  private int ampTag;
 
   PIDController rotationController = new PIDController(.015, 0.005, 0.0001);
 
@@ -38,11 +37,9 @@ public class Vision extends SubsystemBase {
     if (ally.isPresent()) {
       if (ally.get() == Alliance.Red) {
           speakerTag = 4;
-          ampTag = 5;
       }
       if (ally.get() == Alliance.Blue) {
           speakerTag = 7;
-          ampTag = 6;
       }
     }
   }
@@ -70,13 +67,13 @@ public class Vision extends SubsystemBase {
     return roatationSpeed;
   }
 
-  public double calculateOffsetAmp() {
-    var result = camBack.getLatestResult();
-    double roatationSpeed;
+  public double calculateOffsetNote() {
+    var result = cam.getLatestResult();
+    double roatationSpeed = 0;
 
-    if (result.hasTargets() && result.getTargets().get(ampTag) != null) {
+    if (result.hasTargets()) {
       double yaw = (result.getTargets().get(0).getYaw());
-      roatationSpeed = -rotationController.calculate(yaw, 0);
+      roatationSpeed = rotationController.calculate(yaw, 0);
     } 
     else{roatationSpeed = 0;}
     return roatationSpeed;
