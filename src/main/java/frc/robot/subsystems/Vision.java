@@ -24,7 +24,7 @@ public class Vision extends SubsystemBase {
   private int speakerTag;
   private int ampTag;
 
-  PIDController rotationController = new PIDController(.02, 0.0005, 0.001);
+  PIDController rotationController = new PIDController(.015, 0.005, 0.0001);
 
 
   /** Creates a new Vision. */
