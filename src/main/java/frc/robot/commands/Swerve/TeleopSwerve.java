@@ -7,7 +7,9 @@ import java.util.function.BooleanSupplier;
 import java.util.function.DoubleSupplier;
 
 import edu.wpi.first.math.MathUtil;
+import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.Command;
 
 
@@ -26,6 +28,17 @@ public class TeleopSwerve extends Command {
         this.strafeSup = strafeSup;
         this.rotationSup = rotationSup;
         this.robotCentricSup = robotCentricSup;
+    }
+
+    @Override
+    public void initialize(){
+       var alliance = DriverStation.getAlliance();
+        if (alliance.isPresent()) {
+            if(alliance.get() == DriverStation.Alliance.Red){
+                s_Swerve.setHeading(new Rotation2d(3.1416));
+             }
+         }
+                 
     }
 
     @Override
