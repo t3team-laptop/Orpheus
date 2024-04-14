@@ -166,8 +166,8 @@ public final class Constants {
 
 
     public static final class AutoConstants { //TODO: The below constants are used in the example auto, and must be tuned to specific robot
-        public static final double kMaxSpeedMetersPerSecond = 3; //used to be 3
-        public static final double kMaxAccelerationMetersPerSecondSquared = 3;
+        public static final double kMaxSpeedMetersPerSecond = 5; //used to be 3
+        public static final double kMaxAccelerationMetersPerSecondSquared = 5;
         public static final double kMaxAngularSpeedRadiansPerSecond = Math.PI;
         public static final double kMaxAngularSpeedRadiansPerSecondSquared = Math.PI;
     
@@ -195,10 +195,10 @@ public final class Constants {
         public static final Transform3d ROBOT_TO_BACK_CAM_TRANSFORM =
             new Transform3d(
                 new Translation3d(
-                    Units.inchesToMeters(0),
-                    Units.inchesToMeters(-13.1),
-                    Units.inchesToMeters(5.541)),
-                new Rotation3d(Units.degreesToRadians(0), Units.degreesToRadians(30), 0));
+                    Units.inchesToMeters(11.94),
+                    Units.inchesToMeters(-4.439),
+                    Units.inchesToMeters(13.252+4.25)),
+                new Rotation3d(Units.degreesToRadians(0), Units.degreesToRadians(0), Units.degreesToRadians(200)));
         
     }
 

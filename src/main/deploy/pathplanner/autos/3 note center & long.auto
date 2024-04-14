@@ -30,69 +30,6 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "Center Leave Zone"
-                }
-              },
-              {
-                "type": "sequential",
-                "data": {
-                  "commands": [
-                    {
-                      "type": "wait",
-                      "data": {
-                        "waitTime": 0.1
-                      }
-                    },
-                    {
-                      "type": "named",
-                      "data": {
-                        "name": "intake"
-                      }
-                    }
-                  ]
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "named",
-                "data": {
-                  "name": "intake up"
-                }
-              },
-              {
-                "type": "path",
-                "data": {
-                  "pathName": "return"
-                }
-              }
-            ]
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "SpeakerShoot"
-          }
-        },
-        {
-          "type": "named",
-          "data": {
-            "name": "intake down"
-          }
-        },
-        {
-          "type": "parallel",
-          "data": {
-            "commands": [
-              {
-                "type": "path",
-                "data": {
                   "pathName": "find second note"
                 }
               },
@@ -166,7 +103,7 @@
                     {
                       "type": "wait",
                       "data": {
-                        "waitTime": 1.0
+                        "waitTime": 1.27
                       }
                     },
                     {
@@ -194,7 +131,70 @@
               {
                 "type": "path",
                 "data": {
-                  "pathName": "long left center return"
+                  "pathName": "Long Left Center Return Avoids Center Note"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "SpeakerShoot"
+          }
+        },
+        {
+          "type": "named",
+          "data": {
+            "name": "intake down"
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "Center Leave Zone"
+                }
+              },
+              {
+                "type": "sequential",
+                "data": {
+                  "commands": [
+                    {
+                      "type": "wait",
+                      "data": {
+                        "waitTime": 0.1
+                      }
+                    },
+                    {
+                      "type": "named",
+                      "data": {
+                        "name": "intake"
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        },
+        {
+          "type": "parallel",
+          "data": {
+            "commands": [
+              {
+                "type": "named",
+                "data": {
+                  "name": "intake up"
+                }
+              },
+              {
+                "type": "path",
+                "data": {
+                  "pathName": "return"
                 }
               }
             ]

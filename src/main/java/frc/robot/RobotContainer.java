@@ -198,7 +198,7 @@ public class RobotContainer {
                 s_Swerve,
                 () -> -baseDriver.getRawAxis(translationAxis),
                 () -> -baseDriver.getRawAxis(strafeAxis),
-                () -> vision.calculateOffsetNote(),
+                () -> -vision.calculateOffsetNote(),
                 () -> baseDriver.leftBumper().getAsBoolean()
             ));
          

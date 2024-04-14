@@ -8,38 +8,32 @@
       },
       "prevControl": null,
       "nextControl": {
-        "x": 6.248790036797026,
-        "y": 0.11634943170453371
+        "x": 8.827176172870864,
+        "y": -0.5569196323577829
       },
       "isLocked": false,
       "linkedName": "2nd center note"
     },
     {
       "anchor": {
-        "x": 0.7,
-        "y": 4.4
+        "x": 0.8984446913140571,
+        "y": 4.4600922416554205
       },
       "prevControl": {
-        "x": 1.1336602689720654,
-        "y": 3.011963612696837
+        "x": 2.4228985815732713,
+        "y": 3.2561791585513666
       },
       "nextControl": null,
       "isLocked": false,
       "linkedName": "right subwoofer"
     }
   ],
-  "rotationTargets": [
-    {
-      "waypointRelativePos": 0.2,
-      "rotationDegrees": 120.0,
-      "rotateFast": false
-    }
-  ],
+  "rotationTargets": [],
   "constraintZones": [],
   "eventMarkers": [],
   "globalConstraints": {
-    "maxVelocity": 4.5,
-    "maxAcceleration": 4.5,
+    "maxVelocity": 5.0,
+    "maxAcceleration": 5.0,
     "maxAngularVelocity": 540.0,
     "maxAngularAcceleration": 720.0
   },
