@@ -9,6 +9,7 @@ import java.util.function.DoubleSupplier;
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
+import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -32,13 +33,13 @@ public class TeleopSwerve extends Command {
 
     @Override
     public void initialize(){
-       var alliance = DriverStation.getAlliance();
+     /*   var alliance = DriverStation.getAlliance();
         if (alliance.isPresent()) {
             if(alliance.get() == DriverStation.Alliance.Red){
-                s_Swerve.setHeading(new Rotation2d(3.1416));
+                s_Swerve.setHeading(new Rotation2d(Units.degreesToRadians(s_Swerve.getHeading().getDegrees()+90)));
              }
          }
-                 
+          */       
     }
 
     @Override

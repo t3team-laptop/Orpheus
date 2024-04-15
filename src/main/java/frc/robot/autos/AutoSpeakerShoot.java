@@ -41,7 +41,7 @@ public class AutoSpeakerShoot extends Command {
     shooter.setShooterRSpeed(-.75);
 
 
-    if(timer.get() > .25){
+    if(timer.get() > .35){
         intake.outtake(.6);
     }
   }

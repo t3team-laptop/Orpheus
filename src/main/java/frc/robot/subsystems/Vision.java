@@ -38,7 +38,7 @@ public class Vision extends SubsystemBase {
       if (ally.get() == Alliance.Red) {
           speakerTag = 4;
       }
-      if (ally.get() == Alliance.Blue) {
+      else if (ally.get() == Alliance.Blue) {
           speakerTag = 7;
       }
     }
