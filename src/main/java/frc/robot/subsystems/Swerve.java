@@ -19,6 +19,7 @@ import edu.wpi.first.math.geometry.Pose2d;
 import edu.wpi.first.math.geometry.Rotation2d;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveModuleState;
+import edu.wpi.first.math.util.Units;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.smartdashboard.Field2d;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
@@ -159,6 +160,17 @@ public class Swerve extends SubsystemBase {
 
     public void zeroHeading(){
         swerveOdometry.resetPosition(getGyroYaw(), getModulePositions(), new Pose2d(getPose().getTranslation(), new Rotation2d()));
+    }
+
+    public void autoHeadingFix(){
+          var alliance = DriverStation.getAlliance();
+        if (alliance.isPresent()) {
+            if(alliance.get() == DriverStation.Alliance.Red){
+                double angle = getHeading().getDegrees() > 0? getHeading().getDegrees()-180 : getHeading().getDegrees()+180 ;
+                setHeading(new Rotation2d(Units.degreesToRadians(angle)));
+             }
+         }
+        
     }
 
     public Rotation2d getGyroYaw() {

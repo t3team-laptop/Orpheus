@@ -230,7 +230,7 @@ public class RobotContainer {
      */
     public Command getAutonomousCommand() {
         // An ExampleCommand will run in autonomous
-        return autoChooser.getSelected();
+        return autoChooser.getSelected().andThen(new InstantCommand(() -> s_Swerve.autoHeadingFix()));
     }
 
 }

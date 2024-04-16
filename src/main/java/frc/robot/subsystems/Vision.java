@@ -68,7 +68,7 @@ public class Vision extends SubsystemBase {
   }
 
   public double calculateOffsetNote() {
-    var result = cam.getLatestResult();
+    var result = camBack.getLatestResult();
     double roatationSpeed = 0;
 
     if (result.hasTargets()) {
