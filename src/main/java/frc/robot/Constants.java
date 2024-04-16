@@ -198,7 +198,7 @@ public final class Constants {
                     Units.inchesToMeters(-.03),
                     Units.inchesToMeters(2.955),
                     Units.inchesToMeters(19.03)),
-                new Rotation3d(Units.degreesToRadians(0), Units.degreesToRadians(0), Units.degreesToRadians(15)));
+                new Rotation3d(Units.degreesToRadians(0), Units.degreesToRadians(15), Units.degreesToRadians(0)));
         
     }
 

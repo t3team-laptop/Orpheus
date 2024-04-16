@@ -72,8 +72,8 @@ public class Vision extends SubsystemBase {
     double roatationSpeed = 0;
 
     if (result.hasTargets()) {
-      double yaw = (result.getTargets().get(0).getYaw());
-      roatationSpeed = rotationController.calculate(yaw, 0);
+      double yaw = (result.getBestTarget().getYaw());
+      roatationSpeed = rotationController.calculate(yaw, -2);
     } 
     else{roatationSpeed = 0;}
     return roatationSpeed;
