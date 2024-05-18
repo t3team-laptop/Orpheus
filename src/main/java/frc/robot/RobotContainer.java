@@ -1,3 +1,37 @@
+/*
+ * Hey future T3 :) Before I leave I just wanted to thank 
+ * this team for giving me the experiences it did.
+ * I had no idea I was going to fall in love with making
+ * things out of my own hands and watching them come to life.
+ * But robotics showed me that, and I will forever be grateful
+ * for it. I hope that as you guys code, build, and design
+ * for this season you enjoy it as much as I always did. 
+ * I know it's cheesy but please don't forget to stop 
+ * and smell the roses. Remember why you are doing what you 
+ * are doing. Even though things suck when stuff doesn't go
+ * as planned, it's a part of the learning process and it 
+ * makes you a smarter person as you adapt to it. I know we
+ * can't always win and that's okay. You're learning. And that's
+ * what matters. I don't think I can even imagine a high school 
+ * experience without T3 in it. I devoted 4 years of my life to 
+ * this crap and I have absolutely no regrets. As someone who has 
+ * been programming for the team for the past few years I know
+ * that it can be alot sometimes, but don't worry. Just do your
+ * best with the knowledge you have. Also, I wouldn't have done
+ * anything other than be the programmer for this team and I
+ * loved that I did it. Thank you to all of the people that made
+ * my robotics experiences so much better by just being in it.
+ * Special shoutouts to: my favorite co-captains Anshu and Ryan,
+ * Carrie my favorite coding partner, Anika the little sister
+ * I've always wanted, and last but most certainly not least, 
+ * Mr. Ware and Mr.Garren for enabling me to have such an
+ * amazing educational experience with robotics. 
+ * 
+ * Thank you for everything,
+ * Akshita Santra 
+ */
+
+
 package frc.robot;
 
 
